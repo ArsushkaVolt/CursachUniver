@@ -76,7 +76,7 @@ namespace TetrisOOP
             { 
                 new[] { new Point(1, 0), new Point(0, 1), new Point(1, 1), new Point(2, 1) }, 
                 new[] { new Point(1, 0), new Point(1, 1), new Point(2, 1), new Point(1, 2) }, 
-                new[] { new Point(1, 1), new Point(0, 2), new Point(1, 2), new Point(2, 2) }, 
+                new[] { new Point(0, 1), new Point(1, 1), new Point(2, 1), new Point(1, 2) }, 
                 new[] { new Point(1, 0), new Point(0, 1), new Point(1, 1), new Point(1, 2) } 
             }; 
         } 
@@ -84,14 +84,17 @@ namespace TetrisOOP
 
     // ====================== ТАБЛО ======================
     public class ScoreDisplay : IGameObject
+    
     {
         public int Score, Lines, Level = 1;
+        public int HighScore { get; set; } = 0;
 
         public void Draw(Graphics g)
         {
             string text = $"   СЧЁТ: {Score}\n" +
                           $"   ЛИНИИ: {Lines}\n" +
                           $"   УРОВЕНЬ: {Level}\n\n" +
+                          $"   РЕКОРД: {HighScore}\n\n" +
                           "   УПРАВЛЕНИЕ:\n" +
                           "   ↑ — вращать\n" +
                           "   ← → — движение\n" +
@@ -161,15 +164,44 @@ namespace TetrisOOP
                         Array.Copy(board, (yy - 1) * 10, board, yy * 10, 10);
                     Array.Clear(board, 0, 10);
                     removed++;
-                    y++; // Повторно проверяем эту строку
+                    y++;
                 }
             }
             if (removed > 0)
             {
-                ScoreBoard.Lines += removed;
+                ScoreBoard.Lines +=  removed;
                 ScoreBoard.Score += removed * 100 * ScoreBoard.Level;
                 ScoreBoard.Level = 1 + ScoreBoard.Lines / 10;
+
+                // Обновляем рекорд
+                if (ScoreBoard.Score > ScoreBoard.HighScore)
+                {
+                    ScoreBoard.HighScore = ScoreBoard.Score;
+                    SaveRecord();
+                }
             }
+        }
+
+        // Загрузка рекорда при старте
+        public void LoadRecord()
+        {
+            if (File.Exists("record.json"))
+            {
+                try
+                {
+                    string json = File.ReadAllText("record.json");
+                    var rec = JsonSerializer.Deserialize<RecordData>(json);
+                    ScoreBoard.HighScore = rec?.Score ?? 0;
+                }
+                catch { ScoreBoard.HighScore = 0; }
+            }
+        }
+
+        // Сохранение рекорда
+        private void SaveRecord()
+        {
+            var rec = new RecordData { Score = ScoreBoard.HighScore, Date = DateTime.Now.ToString("dd.MM.yyyy HH:mm") };
+            File.WriteAllText("record.json", JsonSerializer.Serialize(rec, new JsonSerializerOptions { WriteIndented = true }));
         }
 
         // Отрисовка всего поля
@@ -197,6 +229,12 @@ namespace TetrisOOP
             }
         }
     }
+    // Класс для сохранения рекорда
+    record RecordData
+    {
+        public int Score { get; set; }
+        public string Date { get; set; } = "";
+    }
 
     // ====================== ГЛАВНАЯ ФОРМА ======================
     public partial class TetrisForm : Form
@@ -218,6 +256,9 @@ namespace TetrisOOP
             this.KeyPreview = true;      // Чтобы клавиши работали
             this.DoubleBuffered = true;  // Без мерцания
 
+            // Загружаем рекорд при старте
+            game.LoadRecord();
+
             // Левая панель — информация и кнопки
             var leftPanel = new Panel
             {
@@ -230,6 +271,7 @@ namespace TetrisOOP
             var btnNew = CreateButton("НОВАЯ ИГРА", Color.FromArgb(0, 120, 255));
             var btnPause = CreateButton("ПАУЗА", Color.FromArgb(255, 140, 0));
             var btnSave = CreateButton("СОХРАНИТЬ РЕКОРД", Color.FromArgb(0, 180, 0));
+            var btnExit = CreateButton("ВЫЙТИ", Color.FromArgb(255, 0, 0));
 
             // Обработчики кнопок
             btnNew.Click += (s, e) => { game.NewGame(); Invalidate(); };
@@ -246,14 +288,19 @@ namespace TetrisOOP
                 MessageBox.Show($"Рекорд {record.Score} сохранён!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             };
 
+            btnExit.Click += (s, e) => { Application.Exit(); };
+
+
             // Расположение кнопок под табло
             btnNew.Location = new Point(30, 300);
             btnPause.Location = new Point(30, 370);
             btnSave.Location = new Point(30, 440);
+            btnExit.Location = new Point(30, 520);
 
             leftPanel.Controls.Add(btnNew);
             leftPanel.Controls.Add(btnPause);
             leftPanel.Controls.Add(btnSave);
+            leftPanel.Controls.Add(btnExit);
             Controls.Add(leftPanel);
 
             // Запуск игры
