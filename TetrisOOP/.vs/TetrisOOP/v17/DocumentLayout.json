@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\",
+  "WorkspaceRootPath": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|c:\\users\\baitpro\\documents\\github\\cursachuniver\\tetrisoop\\tetrisoop\\tetris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|c:\\users\\arsenii\\documents\\cursachuniver\\tetrisoop\\tetrisoop\\tetris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|solutionrelative:tetrisoop\\tetris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|c:\\users\\baitpro\\documents\\github\\cursachuniver\\tetrisoop\\tetrisoop\\tetris.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|c:\\users\\arsenii\\documents\\cursachuniver\\tetrisoop\\tetrisoop\\tetris.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|solutionrelative:tetrisoop\\tetris.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|c:\\users\\baitpro\\documents\\github\\cursachuniver\\tetrisoop\\tetrisoop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|c:\\users\\arsenii\\documents\\cursachuniver\\tetrisoop\\tetrisoop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|solutionrelative:tetrisoop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\tetrisoop\\tetris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\tetrisoop\\tetris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{437FB5C9-5C46-4093-89CA-E603544840EA}|TetrisOOP\\TetrisOOP.csproj|solutionrelative:tetrisoop\\tetris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -36,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Tetris.cs",
-              "DocumentMoniker": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.cs",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.cs",
               "RelativeDocumentMoniker": "TetrisOOP\\Tetris.cs",
-              "ToolTip": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.cs",
+              "ToolTip": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.cs",
               "RelativeToolTip": "TetrisOOP\\Tetris.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAmwE4AAABWAAAAAAAAAA==",
+              "ViewState": "AgIAAI4BAAAAAAAAAAAIwKgBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T16:57:53.155Z",
               "EditorCaption": ""
@@ -49,9 +49,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\TetrisOOP\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\TetrisOOP\\Program.cs",
               "RelativeDocumentMoniker": "TetrisOOP\\Program.cs",
-              "ToolTip": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\TetrisOOP\\Program.cs",
+              "ToolTip": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\TetrisOOP\\Program.cs",
               "RelativeToolTip": "TetrisOOP\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -61,22 +61,26 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Tetris.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.Designer.cs",
               "RelativeDocumentMoniker": "TetrisOOP\\Tetris.Designer.cs",
-              "ToolTip": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.Designer.cs",
+              "ToolTip": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.Designer.cs",
               "RelativeToolTip": "TetrisOOP\\Tetris.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T16:54:45.369Z"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Tetris.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\Users\\BaitPro\\Documents\\GitHub\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.cs",
+              "DocumentMoniker": "C:\\Users\\Arsenii\\Documents\\CursachUniver\\TetrisOOP\\TetrisOOP\\Tetris.cs",
               "RelativeDocumentMoniker": "TetrisOOP\\Tetris.cs",
               "ToolTip": "C:\\Users\\BaitPro\\Documents\\\u041A\u0443\u0440\u0441\u0430\u0447 \u0418\u0422\u0418\u041F(3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\TetrisOOP\\TetrisOOP\\Tetris.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "..\\..\\..\\\u041A\u0443\u0440\u0441\u0430\u0447 \u0418\u0422\u0418\u041F(3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\TetrisOOP\\TetrisOOP\\Tetris.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "..\\..\\..\\..\\BaitPro\\Documents\\\u041A\u0443\u0440\u0441\u0430\u0447 \u0418\u0422\u0418\u041F(3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440)\\TetrisOOP\\TetrisOOP\\Tetris.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T16:54:28.4Z"
             }

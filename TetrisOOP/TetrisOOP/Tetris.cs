@@ -66,8 +66,28 @@ namespace TetrisOOP
     }
 
     // ====================== КОНКРЕТНЫЕ ФИГУРЫ ======================
-    public class I_Tetromino : Tetromino { public I_Tetromino(GameField f) : base(f) => Reset(); public override void Reset() { color = Color.Cyan; shapes = new[] { new[] { new Point(0, 1), new Point(1, 1), new Point(2, 1), new Point(3, 1) }, new[] { new Point(2, 0), new Point(2, 1), new Point(2, 2), new Point(2, 3) } }; } }
-    public class O_Tetromino : Tetromino { public O_Tetromino(GameField f) : base(f) => Reset(); public override void Reset() { color = Color.Yellow; shapes = new[] { new[] { new Point(1, 0), new Point(2, 0), new Point(1, 1), new Point(2, 1) } }; } public override void Rotate() { } } // Квадрат не крутится
+    public class I_Tetromino : Tetromino { public I_Tetromino(GameField f) : base(f) => Reset(); 
+        public override void Reset() 
+        { 
+            color = Color.Cyan; 
+            shapes = new[] 
+            { 
+                new[] { new Point(0, 1), new Point(1, 1), new Point(2, 1), new Point(3, 1) }, 
+                new[] { new Point(2, 0), new Point(2, 1), new Point(2, 2), new Point(2, 3) } 
+            }; 
+        } 
+    }
+    public class O_Tetromino : Tetromino { public O_Tetromino(GameField f) : base(f) => Reset(); 
+        public override void Reset() 
+        { 
+            color = Color.Yellow; 
+            shapes = new[] 
+            { 
+                new[] { new Point(1, 0), new Point(2, 0), new Point(1, 1), new Point(2, 1) 
+                } 
+            }; 
+        } 
+        public override void Rotate() { } } // Квадрат не крутится
     public class T_Tetromino : Tetromino { public T_Tetromino(GameField f) : base(f) => Reset(); 
         public override void Reset() 
         { 
@@ -80,6 +100,23 @@ namespace TetrisOOP
                 new[] { new Point(1, 0), new Point(0, 1), new Point(1, 1), new Point(1, 2) } 
             }; 
         } 
+    }
+
+
+    public class G_Tetromino : Tetromino
+    {
+        public G_Tetromino(GameField f) : base(f) => Reset();
+        public override void Reset()
+        {
+            color = Color.Green;
+            shapes = new[]
+            {
+                new[] { new Point(0, 0), new Point(0, 1), new Point(1, 1), new Point(2, 1) },
+                new[] { new Point(1, 0), new Point(1, 1), new Point(1, 2), new Point(0, 2) },
+                new[] { new Point(0, 1), new Point(1, 1), new Point(2, 1), new Point(2, 2) },
+                new[] { new Point(0, 0), new Point(1, 0), new Point(1, 1), new Point(1, 2) }
+            };
+        }
     }
 
     // ====================== ТАБЛО ======================
@@ -110,10 +147,11 @@ namespace TetrisOOP
     {
         public readonly int[,] board = new int[20, 10];  // 20 строк × 10 столбцов
         public Tetromino? Current;                       // Текущая падающая фигура
+        public Tetromino? Next;
         public readonly ScoreDisplay ScoreBoard = new();
         public bool GameOver { get; private set; }
 
-        private readonly Type[] pieces = { typeof(I_Tetromino), typeof(O_Tetromino), typeof(T_Tetromino) };
+        private readonly Type[] pieces = { typeof(I_Tetromino), typeof(O_Tetromino), typeof(T_Tetromino), typeof(G_Tetromino) };
         private readonly Random rnd = new();
 
         // Новая игра — очищаем поле, сбрасываем счёт
@@ -123,14 +161,24 @@ namespace TetrisOOP
             ScoreBoard.Score = ScoreBoard.Lines = 0;
             ScoreBoard.Level = 1;
             GameOver = false;
+            Next = null;
             Spawn();
+            PrepareNext();
         }
 
         // Появление новой фигуры
+        private void PrepareNext()
+        {
+            Next = (Tetromino)Activator.CreateInstance(pieces[rnd.Next(pieces.Length)], this);
+        }
+        
+
         public void Spawn()
         {
             if (GameOver) return;
-            Current = (Tetromino)Activator.CreateInstance(pieces[rnd.Next(pieces.Length)], this);
+            Current = Next ?? (Tetromino)Activator.CreateInstance(pieces[rnd.Next(pieces.Length)], this);
+            PrepareNext(); // Готовим "следующую" фигуру
+
             if (!Current.IsValid())
             {
                 GameOver = true;
@@ -220,6 +268,24 @@ namespace TetrisOOP
             Current?.Draw(g);
             ScoreBoard.Draw(g);
 
+            // === ПОКАЗ СЛЕДУЮЩЕЙ ФИГУРЫ (NEXT) ===
+            g.DrawString("Следующая:", new Font("Consolas", 14, FontStyle.Bold), Brushes.White, 747, 345);
+            g.DrawRectangle(Pens.White, 740, 377, 138, 135); // окошко 4×4
+
+
+
+            if (Next != null)
+            {
+                // Рисуем Next в центре окошка (смещение +2 по X/Y для центрирования)
+                foreach (Point p in Next.shapes[0]) // всегда первый поворот
+                {
+                    int x = p.X * 29 + 754;
+                    int y = p.Y * 29 + 405;
+                    g.FillRectangle(new SolidBrush(Next.color), x, y, 29, 29);
+                    g.DrawRectangle(Pens.Black, x, y, 29, 29);
+                }
+            }
+
             // Экран Game Over
             if (GameOver)
             {
@@ -247,7 +313,7 @@ namespace TetrisOOP
             InitializeComponent();
 
             // Настройки окна
-            this.Text = "Тетрис — ООП Курсач";
+            this.Text = "Tetris";
             this.Size = new Size(1200, 800);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(15, 15, 35);
